@@ -1,0 +1,19 @@
+{
+	"name": "AzureDataLakeStorage1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://healthcareadlsstroage.dfs.core.windows.net/",
+			"accountKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "tt_hc_kv_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "access-key-ttadlsdevnew"
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"name": "hosa_sql_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"db_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "mission100adeaniketsever.database.windows.net",
+			"database": "@{linkedService().db_name}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "azurerAniketDataAdmin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "tt_hc_kv_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "azure-sql-db-password"
+			}
+		}
+	}
+}

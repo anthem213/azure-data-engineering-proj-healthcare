@@ -1,0 +1,332 @@
+{
+	"name": "pl_silver_to_gold",
+	"properties": {
+		"activities": [
+			{
+				"name": "slv_transaction",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/Transactions"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gold_transactions",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_transaction",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/fact_transaction"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_patients",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/Patients"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gld_patients",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_patients",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/dim_patient"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_npi",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/NPI"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gld_npi",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_npi",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/dim_npi"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_icd_codes",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/ICD Code"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gld_icd_codes",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_icd_codes",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/dim_icd_code"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_providers",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/Providers_F"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gld_providers",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_providers",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/dim_provider"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_cpt_codes",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/CPT Codes"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "gld_cpt_codes",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "slv_cpt_codes",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Gold/dim_cpt_code"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_claims",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/Claims"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "slv_encounters",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/aniket.304lan@gmail.com/Silver/Encounters"
+				},
+				"linkedServiceName": {
+					"referenceName": "tt_hc_adb_ls",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-03-31T15:50:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
