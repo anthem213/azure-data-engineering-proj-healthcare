@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "healthcare-proj-adf-dev"
+		},
+		"AzureDatabricksDeltaLake1_ls_accessToken": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://healthcareadlsstroage.dfs.core.windows.net/"
+		},
+		"hosa_sql_ls_properties_typeProperties_server": {
+			"value": "mission100adeaniketsever.database.windows.net"
+		},
+		"hosa_sql_ls_properties_typeProperties_database": {
+			"value": "@{linkedService().db_name}"
+		},
+		"hosa_sql_ls_properties_typeProperties_userName": {
+			"value": "azurerAniketDataAdmin"
+		},
+		"tt_hc_adb_ls_properties_typeProperties_existingClusterId": {
+			"value": "0323-173004-17x1v9it"
+		},
+		"tt_hc_kv_ls_properties_typeProperties_baseUrl": {
+			"value": "https://kv-healthcare-proj.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
