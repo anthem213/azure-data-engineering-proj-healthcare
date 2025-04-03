@@ -1,6 +1,5 @@
 {
 	"name": "tt_hc_adb_ls",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureDatabricks",
@@ -14,7 +13,8 @@
 				},
 				"secretName": "db-hc-adb-ws-at"
 			},
-			"existingClusterId": "0323-173004-17x1v9it"
+			"existingClusterId": "0403-042552-4d6jdeyu"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
