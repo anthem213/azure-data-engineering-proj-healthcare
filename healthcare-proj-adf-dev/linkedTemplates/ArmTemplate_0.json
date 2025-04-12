@@ -33,7 +33,7 @@
 		},
 		"tt_hc_adb_ls_properties_typeProperties_existingClusterId": {
 			"type": "string",
-			"defaultValue": "0323-173004-17x1v9it"
+			"defaultValue": "0403-042552-4d6jdeyu"
 		}
 	},
 	"variables": {
@@ -49,7 +49,7 @@
 				"type": "AzureDatabricksDeltaLake",
 				"typeProperties": {
 					"domain": "https://adb-1513610024249885.5.azuredatabricks.net",
-					"clusterId": "0323-173004-17x1v9it",
+					"clusterId": "0403-042552-4d6jdeyu",
 					"accessToken": {
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricksDeltaLake1_ls_accessToken')]"
