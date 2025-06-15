@@ -1,20 +1,13 @@
 {
 	"name": "tt_hc_adb_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureDatabricks",
 		"typeProperties": {
 			"domain": "https://adb-1513610024249885.5.azuredatabricks.net",
-			"accessToken": {
-				"type": "AzureKeyVaultSecret",
-				"store": {
-					"referenceName": "tt_hc_kv_ls",
-					"type": "LinkedServiceReference"
-				},
-				"secretName": "db-hc-adb-ws-at"
-			},
-			"existingClusterId": "0518-050158-a2k32qz7"
+			"existingClusterId": "0518-050158-a2k32qz7",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDNDNjEyMjY1LUZGOEMtNDY2NS04RDUyLTNFMTIxMzVEQ0Q4OF8wNjc5ZDlkYS03YmJlLTQ5MDItODIyMy00NzYxODk3ODIyMTUiDQp9"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
